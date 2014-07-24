@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{name}}</div>
+        <div class="panel-body">
+          <div>Common options</div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" data-ng-model="graduatedScale">graduated scale
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Label</th>
+              <th>Scale</th>
+              <th>Expected Value</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="axis in axises">
+              <td>{{$index}}</td>
+              <td>{{axis.name}}</td>
+              <td>{{axis.scale}}</td>
+              <td>{{axis.expectedValue}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div data-starlinechart></div>
+    </div>
+  </div>
+</div>

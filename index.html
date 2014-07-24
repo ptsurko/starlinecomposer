@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Line Composer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-ng-app="StarLineComposer">
+  <div data-ng-controller="AppController">
+    <header class="clearfix">
+      <div class="logo inline"></div>
+      <ul class="list-inline inline">
+        <li>Compose</li>
+        <li>History</li>
+      </ul>
+      <div class="inline">User name</div>
+      <form class="form-inline inline" role="form">
+        <input type="search" class="form-control" placeholder="Search..." />
+      </form>
+    </header>
+    <div role="main">
+      <div class="" data-ng-controller="CampaignController" data-ng-include="'/views/campaign.html'"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/bower_components/angularjs/angular.js"></script>
+  <script type="text/javascript" src="/bower_components/d3/d3.js"></script>
+  <script type="text/javascript" src="/lib/starlinechart.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+  <script type="text/javascript" src="/js/controllers/appcontroller.js"></script>
+  <script type="text/javascript" src="/js/controllers/campaigncontroller.js"></script>
+  <script type="text/javascript" src="/js/controllers/visualisationcontroller.js"></script>
+  <script type="text/javascript" src="/js/directives/starlinechart.js"></script>
+</body>
+</html>

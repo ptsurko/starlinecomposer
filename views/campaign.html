@@ -1,0 +1,24 @@
+<div>
+  <div class="">
+    <div class="inline">
+      Campaign {{name}}
+    </div>
+    <div class="inline">
+      <i class="glyphicon glyphicon-pencil"></i>
+      <i class="glyphicon glyphicon-tags"></i>
+    </div>
+    <div class="inline pull-right">
+      <button type="button" class="btn btn-default">Save Draft</button>
+      <button type="button" class="btn btn-default">Reset</button>
+      <button type="button" class="btn btn-default">Discard</button>
+    </div>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary">Visualisation</button>
+    <button type="button" class="btn btn-default">Events</button>
+
+    <button type="button" class="btn btn-warning">Render</button>
+  </div>
+  <div data-ng-controller="VisualisationController" data-ng-include="'/views/visualisation.html'">
+  </div>
+</div>
