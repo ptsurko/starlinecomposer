@@ -1,1 +1,9 @@
+@import "buttons.css";
+@import "forms.css";
 @import "layout.css";
+@import "directives/axisnameeditor.css";
+
+.input-scale, .input-expectedvalue {
+  text-align: right;
+  width: 50px;
+}

@@ -1,0 +1,28 @@
+.axisnameeditor {
+
+}
+
+.axisnameeditor.edit .axisnameeditor-input {
+  display: initial;
+}
+
+.axisnameeditor.edit .axisnameeditor-label {
+  display: none;
+}
+
+.axisnameeditor.edit .axisnameeditor-button {
+  display: none;
+}
+
+
+.axisnameeditor-input {
+  display: none;
+}
+
+.axisnameeditor-label {
+
+}
+
+.axisnameeditor-button {
+
+}

@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Label</th>
+        <th>Scale</th>
+        <th>Expected Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="axis in axises">
+        <td>{{$index + 1}}</td>
+        <td>
+          <!-- <input class="form-control input-tiny" type="text" data-ng-model="axis.name" /> -->
+          <div data-axisnameeditor data-model="axis.name"></div>
+        </td>
+        <td>
+          <input class="form-control input-tiny input-scale inline" data-ng-disabled="!axis.scaleEnabled" type="text" data-ng-model="axis.scale" />
+          <button class="btn btn-transparent" data-ng-click="axis.scaleEnabled = !axis.scaleEnabled">
+            <i class="glyphicon glyphicon-lock"></i>
+          </button>
+        </td>
+        <td>
+          <input class="form-control input-tiny input-expectedvalue inline" type="text" data-ng-model="axis.expectedValue" />
+        </td>
+        <td>
+          <button class="btn btn-transparent" data-ng-click="$parent.removeAxisLine(axis)">
+            <i class="glyphicon glyphicon-remove-sign"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
