@@ -9,7 +9,7 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody data-ng-init="sortConfig = {}" ui-sortable="sortConfig" ng-model="axises">
       <tr data-ng-repeat="axis in axises">
         <td>{{$index + 1}}</td>
         <td>
