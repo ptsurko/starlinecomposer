@@ -13,12 +13,24 @@
       <button type="button" class="btn btn-default">Discard</button>
     </div>
   </div>
-  <div>
-    <button type="button" class="btn btn-primary">Visualisation</button>
-    <button type="button" class="btn btn-default">Events</button>
 
-    <button type="button" class="btn btn-warning">Render</button>
-  </div>
-  <div data-ng-controller="VisualisationController" data-ng-include="'/views/visualisation.html'">
-  </div>
+  <tabset>
+    <tab>
+      <tab-heading>
+        <button type="button" class="btn btn-primary">Visualisation</button>
+      </tab-heading>
+      <div data-ng-controller="VisualisationController" data-ng-include="'/views/visualisation.html'"></div>
+    </tab>
+    <tab>
+      <tab-heading>
+        <button type="button" class="btn btn-primary">Events</button>
+      </tab-heading>
+      <div data-ng-controller="EventsController" data-ng-include="'/views/events.html'"></div>
+    </tab>
+    <tab>
+      <tab-heading>
+        <button type="button" class="btn btn-primary">Render</button>
+      </tab-heading>
+    </tab>
+  </tabset>
 </div>

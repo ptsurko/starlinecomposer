@@ -1,1 +1,1 @@
-angular.module('StarLineComposer', ['ui.sortable']);
+angular.module('StarLineComposer', ['ui.bootstrap','ui.sortable']);
