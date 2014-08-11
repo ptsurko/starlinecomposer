@@ -1,0 +1,14 @@
+
+.timeline .event {
+  stroke: blue;
+}
+
+.timeline .extent {
+  fill: none;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.timeline .event.selected {
+  stroke: green;
+}

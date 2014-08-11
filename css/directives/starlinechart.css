@@ -4,3 +4,10 @@
     stroke: black;
     //shape-rendering: crispEdges;
 }
+
+
+rect.pane {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}

@@ -6,7 +6,7 @@ angular.module('StarLineComposer')
         axises: '=axises'
       },
       link: function(scope, element, attrs) {
-        var rayChart = d3.rayChart();
+        var rayChart = d3.starline.rayChart();
         var cfg = {w: 400, h: 400, TranslateX: 80, TranslateY: 30}; //TODO: remove
         var g = d3.select(element[0])
           .append("svg")

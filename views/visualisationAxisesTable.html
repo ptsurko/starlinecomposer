@@ -9,8 +9,8 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody data-ng-init="sortConfig = {}" ui-sortable="sortConfig" ng-model="axises">
-      <tr data-ng-repeat="axis in axises">
+    <tbody data-ng-init="sortConfig = {}" ui-sortable="sortConfig" ng-model="visCfg.axises">
+      <tr data-ng-repeat="axis in visCfg.axises">
         <td>{{$index + 1}}</td>
         <td>
           <!-- <input class="form-control input-tiny" type="text" data-ng-model="axis.name" /> -->

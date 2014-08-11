@@ -1,12 +1,39 @@
 angular.module('StarLineComposer')
   .controller('EventsController', ['$scope', function($scope) {
-    $scope.events = new vis.DataSet([
-      {id: 0, content: 'event 0', start: '2014-07-10'},
-      {id: 1, content: 'event 1', start: '2014-07-20'},
-      {id: 2, content: 'event 2', start: '2014-07-14'},
-      {id: 3, content: 'event 3', start: '2014-07-18'},
-      {id: 4, content: 'event 4', start: '2014-07-16'},
-      {id: 5, content: 'event 5', start: '2014-07-25'},
-      {id: 6, content: 'event 6', start: '2014-07-27'}
-    ]);
+    $scope.events = [
+      {date: new Date('2014-08-10'), axises: []},
+      {date: new Date('2014-08-20'), axises: []},
+      {date: new Date('2014-08-14'), axises: []},
+      {date: new Date('2014-08-18'), axises: []},
+      {date: new Date('2014-08-16'), axises: []},
+      {date: new Date('2014-08-25'), axises: []},
+      {date: new Date('2014-08-27'), axises: []}
+    ];
+    $scope.axises = [];
+
+    $scope.onChange = function(date) {
+      $scope.events.push({date: date, axises: []});
+    };
+
+    $scope.$watch('visCfg.axises', function(newData, oldData) {
+      for(var i = 0; i < $scope.events.length; i++) {
+        var oldAxises = $scope.events[i].axises;
+        $scope.events[i].axises = newData.map(function(axis) {
+          var oldAxis = findExistingAxis(oldAxises, axis.name);
+          return {
+            name: axis.name,
+            value: (oldAxis && oldAxis.value) || axis.expectedValue
+          };
+        });
+      }
+    }, true);
+
+    function findExistingAxis(oldAxises, axisName) {
+      for(var i = 0; i < oldAxises.length; i++) {
+        if (oldAxises[i].name == axisName) {
+          return oldAxises[i];
+        }
+      }
+      return null;
+    }
   }]);
