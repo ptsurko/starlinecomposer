@@ -11,8 +11,16 @@ angular.module('StarLineComposer')
     ];
     $scope.axises = [];
 
-    $scope.onChange = function(date) {
-      $scope.events.push({date: date, axises: []});
+    $scope.onSelectDate = function(date) {
+      $scope.events.push({
+        date: date,
+        axises: $scope.visCfg.axises.map(function(axis) {
+          return {
+            name: axis.name,
+            value: axis.expectedValue
+          };
+        })
+      });
     };
 
     $scope.$watch('visCfg.axises', function(newData, oldData) {

@@ -1,9 +1,12 @@
-<div>
-  Event details {{event.date}}
-  <ul>
-    <li data-ng-repeat="axis in event.axises">
-      {{axis.name}}
-      <input type="text" data-ng-model="axis.value" />
-    </li>
-  </ul>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="event-details">
+      <ul class="event-parameters">
+        <li data-ng-repeat="axis in event.axises" class="event-parameter">
+          <span class="name">{{$index}}. {{axis.name}}</span>
+          <input class="value" type="text" data-ng-model="axis.value" />
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

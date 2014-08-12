@@ -20,7 +20,7 @@ angular.module('StarLineComposer')
             var templateContent = $templateCache.get('/views/eventdetails.html');
             var eventDetailsScope = scope.$new();
             eventDetailsScope.event = e.data;
-            
+
             var eventDetailsEl = $compile(templateContent)(eventDetailsScope);
             eventDetailsWrapEl.html(eventDetailsEl);
           });
