@@ -7,14 +7,19 @@ angular.module('StarLineComposer')
       scope: {
         events: '=events'
       },
-      template: '<svg class="timeline"></svg><div></div>',
+      template: '<svg></svg><div></div>',
       link: function(scope, element, attrs) {
-        var eventDetailsWrapEl = $('div', element);
-        var timeline = d3.starline.eventsTimeline();
+        var scale = d3.time.scale().range([0, 800])
+          .domain([new Date (2014, 7, 0), new Date(2014, 8, 0)]);
         var cfg = {
           w: 800,
-          h: 50
+          h: 80
         };
+
+        var eventDetailsWrapEl = $('div', element);
+        var timeline = d3.starline.eventsTimeline();
+        timeline.scale(scale);
+
         timeline.on('selected', function(e) {
           scope.$apply(function() {
             var templateContent = $templateCache.get('/views/eventdetails.html');
@@ -26,16 +31,24 @@ angular.module('StarLineComposer')
           });
         });
 
-        var g = d3.select($('svg', element)[0])
-          //.attr('class', 'timeline')
+        var g = d3.selectAll($('svg', element))
           .attr('width', cfg.w)
           .attr('height', cfg.h)
+          .data([scope.events])
           .call(timeline);
 
-        //element.append(eventDetailsWrapEl);
+        var zoom = d3.behavior.zoom()
+          .x(timeline.scale())
+          .on("zoom", function() {
+            g.call(timeline);
+          });
+
+        g.call(zoom)
+          .on("dblclick.zoom", null);
 
         scope.$watch('events', function(newData, oldData) {
-          timeline.setEvents(scope.events);
+          g.data([scope.events])
+            .call(timeline);
         }, true);
       }
     };

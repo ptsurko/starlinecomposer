@@ -1,19 +1,22 @@
+.timeline path,
+.timeline line {
+    stroke: black;
+}
 
-.timeline .event-line {
+.events-timeline .event-line {
   stroke: blue;
 }
 
-.timeline .current {
+.events-timeline .current-line {
   stroke: red;
 }
 
-.timeline .extent {
-  fill: none;
+.events-timeline .extent {
   cursor: pointer;
   pointer-events: all;
 }
 
-.timeline .event-line.selected {
+.events-timeline .event-line.selected {
   stroke: green;
 }
 
