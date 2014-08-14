@@ -1,13 +1,17 @@
 angular.module('StarLineComposer')
   .controller('EventsController', ['$scope', function($scope) {
+    var date = new Date();
+    var year = date.getYear() + 1900;
+    var month = date.getMonth();
+    var day = date.getDate();
+
     $scope.events = [
-      {date: new Date('2014-08-10'), axises: []},
-      {date: new Date('2014-08-20'), axises: []},
-      {date: new Date('2014-08-14'), axises: []},
-      {date: new Date('2014-08-18'), axises: []},
-      {date: new Date('2014-08-16'), axises: []},
-      {date: new Date('2014-08-25'), axises: []},
-      {date: new Date('2014-08-27'), axises: []}
+      {date: new Date(year, month, day, Math.floor((Math.random() * 24))), axises: []},
+      {date: new Date(year, month, day, Math.floor((Math.random() * 24))), axises: []},
+      {date: new Date(year, month, day, Math.floor((Math.random() * 24))), axises: []},
+      {date: new Date(year, month, day, Math.floor((Math.random() * 24))), axises: []},
+      {date: new Date(year, month, day, Math.floor((Math.random() * 24))), axises: []},
+      {date: new Date(year, month, day, Math.floor((Math.random() * 24))), axises: []},
     ];
     $scope.axises = [];
 

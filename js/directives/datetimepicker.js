@@ -11,9 +11,11 @@ angular.module('StarLineComposer')
           autoclose: true
         }).on('changeDate', function(e) {
           scope.$apply(function() {
+            var date = new Date(e.date.getUTCFullYear(), e.date.getUTCMonth(), e.date.getUTCDate(), e.date.getUTCHours(), e.date.getUTCMinutes(), e.date.getUTCSeconds(), 0)
+
             $('input', element).val('');
             var onSelectDate = scope.onSelectDate();
-            onSelectDate(e.date);
+            onSelectDate(date);
           });
         });
       }

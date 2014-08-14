@@ -12,8 +12,12 @@ angular.module('StarLineComposer')
                 '</div>',
       compile: function(element, attrs, transclude) {
         return function(scope, element, attrs) {
+          var date = new Date();
+          var year = date.getYear() + 1900;
+          var month = date.getMonth();
+          var day = date.getDate();
           var scale = d3.time.scale().range([0, 800])
-            .domain([new Date (2014, 7, 0), new Date(2014, 8, 0)]);
+            .domain([new Date(year, month, day), new Date(year, month, day + 1)]);
           var cfg = {
             w: 800,
             h: 80
