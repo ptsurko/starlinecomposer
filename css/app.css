@@ -10,3 +10,7 @@
   text-align: right;
   width: 50px;
 }
+
+.nav-tabs li {
+  cursor: pointer;
+}
