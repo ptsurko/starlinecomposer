@@ -4,6 +4,7 @@
 @import "timeline.css";
 @import "directives/axisnameeditor.css";
 @import "directives/starlinechart.css";
+@import "directives/eventstimeline.css";
 @import "directives/timeline.css";
 
 .input-scale, .input-expectedvalue {

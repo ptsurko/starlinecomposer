@@ -18,7 +18,7 @@
   <!-- <div data-timeline events="events"></div> -->
   <div data-events-timeline events="events">
     <div class="event-details">
-      <ul class="event-parameters">
+      <ul class="event-parameters clearfix">
         <li data-ng-repeat="axis in event.axises" class="event-parameter">
           <span class="name">{{$index}}. {{axis.name}}</span>
           <input class="value" type="text" data-ng-model="axis.value" />

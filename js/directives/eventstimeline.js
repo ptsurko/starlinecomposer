@@ -7,8 +7,9 @@ angular.module('StarLineComposer')
       },
       transclude: true,
       template: '<svg></svg>' +
-                '<div class="panel panel-default timeline-events-detail-panel hide">' +
-                  '<div class="panel-body"></div>' +
+                '<div class="events-timeline-detail hide">' +
+                  '<div class="arrow"></div>' +
+                  '<div class="events-timeline-detail-content"></div>' +
                 '</div>',
       compile: function(element, attrs, transclude) {
         return function(scope, element, attrs) {
@@ -23,7 +24,8 @@ angular.module('StarLineComposer')
             h: 80
           };
 
-          var eventDetailsPanelEl = $('.timeline-events-detail-panel', element);
+          var eventDetailsPanelEl = $('.events-timeline-detail', element);
+          var eventDetailsArrowEl = $('.arrow', eventDetailsPanelEl);
           var timeline = d3.starline.eventsTimeline();
           timeline.scale(scale);
 
@@ -33,8 +35,10 @@ angular.module('StarLineComposer')
               var eventDetailsScope = scope.$new();
               eventDetailsScope.event = e.data;
 
+              updateArrowPositioning(e.element);
+
               transclude(eventDetailsScope, function(clone, innerScope) {
-                eventDetailsPanelEl.find('.panel-body').html($compile(clone)(innerScope));
+                eventDetailsPanelEl.find('.events-timeline-detail-content').html($compile(clone)(innerScope));
               });
             });
           });
@@ -49,6 +53,8 @@ angular.module('StarLineComposer')
             .x(timeline.scale())
             .on("zoom", function() {
               g.call(timeline);
+
+              updateArrowPositioning(timeline.getSelectedEventElement());
             });
 
           g.call(zoom)
@@ -58,6 +64,22 @@ angular.module('StarLineComposer')
             g.data([scope.events])
               .call(timeline);
           }, true);
+
+
+          function updateArrowPositioning(selectedEventEl) {
+            var timelineElementOffsetLeft = $(selectedEventEl).offset().left;
+            var detailPanelOffsetLeft = eventDetailsPanelEl.offset().left;
+            var detailPanelBorderLeft = parseInt(eventDetailsPanelEl.css("border-left-width"), 10);
+            var detailPanelPaddingLeft = parseInt(eventDetailsPanelEl.css("padding-left"), 10);
+            var timelineElementExtentWidth = $(selectedEventEl)[0].getBBox().width / 2;
+
+            var left = timelineElementOffsetLeft - detailPanelOffsetLeft - detailPanelBorderLeft - detailPanelPaddingLeft + timelineElementExtentWidth;
+            if (left > 0) {
+              eventDetailsArrowEl.css({'left': left});
+            } else {
+              eventDetailsArrowEl.css({'left': -100});
+            }
+          }
         }
       }
     };
