@@ -53,3 +53,7 @@
 .events-timeline-detail > .events-timeline-detail-content {
   padding: 5px;
 }
+
+.events-timeline-detail .event-parameter .ng-invalid {
+  color: #a94442;
+}

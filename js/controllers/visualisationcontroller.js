@@ -1,38 +1,24 @@
 angular.module('StarLineComposer')
-  .controller('VisualisationController', ['$scope', function($scope) {
+  .controller('VisualisationController', ['$scope', 'VisualisationService', function($scope,  VisualisationService) {
     var axisIndex = 0;
-    $scope.visCfg.name = 'Basic 10 Points';
-    $scope.visCfg.graduatedScale = false;
-    $scope.visCfg.axises = [];
-    for(var i = 0; i < 5; i++) {
-      $scope.visCfg.axises.push({
-        name: 'Lorem Ipsum ' + axisIndex++,
-        scale: '10',
-        scaleEnabled: false,
-        expectedValue: 5,
-        value: Math.random()
-      });
-    }
+    $scope.visCfg = VisualisationService.getVisualisation();
+
     $scope.addAxisLine = function() {
-      $scope.visCfg.axises.push({
-        name: 'Lorem Ipsum ' + axisIndex++,
-        scale: '10',
-        scaleEnabled: false,
-        expectedValue: 5,
-        value: Math.random()
-      });
+      $scope.visCfg.addAxis();
     }
     $scope.removeAxisLine = function(axis) {
-      var index = $scope.visCfg.axises.indexOf(axis);
-      $scope.visCfg.axises.splice(index, 1);
+      $scope.visCfg.removeAxis(axis);
     };
 
     $scope.$watch('visCfg.axises', function(newAxises, oldAxises) {
+      //TODO: fix to save values
       $scope.chartData = newAxises.map(function(axis) {
         return {
           axis: axis.name,
-          value: axis.value
-        }
-      })
+          value: Math.random()
+        };
+      });
+
+      VisualisationService.saveVisualisation($scope.visCfg);
     }, true);
   }]);

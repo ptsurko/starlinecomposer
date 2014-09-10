@@ -5,7 +5,7 @@
       <div class="panel-heading">Custom Date</div>
       <div class="panel-body">
         <div class="form-group" style="max-width:200px">
-          <div class="input-group date" data-datetimepicker data-on-select-date="onSelectDate">
+          <div class="input-group date" data-datetimepicker data-on-select-date="onAddDate">
             <input type="text" class="form-control" />
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
@@ -16,12 +16,12 @@
     </div>
   </div>
   <!-- <div data-timeline events="events"></div> -->
-  <div data-events-timeline events="events">
-    <div class="event-details">
+  <div data-events-timeline events="events" visualisation="visCfg">
+    <div data-ng-controller="EventDetailsController" class="event-details">
       <ul class="event-parameters clearfix">
-        <li data-ng-repeat="axis in event.axises" class="event-parameter">
-          <span class="name">{{$index}}. {{axis.name}}</span>
-          <input class="value" type="text" data-ng-model="axis.value" />
+        <li data-ng-repeat="value in event.values" class="event-parameter">
+          <span class="name">{{$index}}. {{value.axisName}}</span>
+          <input class="value" type="number" data-ng-model="value.value" data-integer />
         </li>
       </ul>
     </div>

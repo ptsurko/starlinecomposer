@@ -3,7 +3,8 @@ angular.module('StarLineComposer')
     return {
       restrict: 'EA',
       scope: {
-        events: '='
+        events: '=',
+        visualisation: '='
       },
       transclude: true,
       template: '<svg></svg>' +
@@ -54,7 +55,10 @@ angular.module('StarLineComposer')
             .on("zoom", function() {
               g.call(timeline);
 
-              updateArrowPositioning(timeline.getSelectedEventElement());
+              var selectedEventElement = timeline.getSelectedEventElement();
+              if (selectedEventElement) {
+                updateArrowPositioning();
+              }
             });
 
           g.call(zoom)
