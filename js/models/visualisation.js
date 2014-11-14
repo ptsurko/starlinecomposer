@@ -24,3 +24,13 @@ Visualisation.prototype.removeAxis = function(axisToRemove) {
   var index = this.axises.indexOf(axisToRemove);
   this.axises.splice(index, 1);
 };
+
+Visualisation.prototype.getAxis = function(axisId) {
+  for (var i = 0; i < this.axises.length; i++) {
+    if (this.axises[i].axisId == axisId) {
+      return this.axises[i];
+    }
+  }
+
+  throw new Error('Unable to fund axis ' + axisId);
+};

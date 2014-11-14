@@ -1,16 +1,16 @@
-function Event(date) {
+function Event(date, visualisation) {
   this.values = [];
   this.date = date;
+  this.visualisation = visualisation;
 };
 
+
 Event.prototype.setValue = function(axisId, value) {
-  for(var i = 0; i < this.values.length; i++) {
-    if (this.values[i].axisId == axisId) {
-      this.values[i].value = value;
-      return;
-    }
+  if (this.values.axisId) {
+    this.values.axisId.value = value;
+  } else {
+    this.values.axisId = {value: value};
   }
-  this.values.push({axisId: axisId, value: value});
 };
 
 
@@ -20,5 +20,9 @@ Event.prototype.getValue = function(axisId) {
       return this.values[i].value;
     }
   }
-  return null;
-}
+};
+
+
+Event.prototype.getValues = function() {
+
+};

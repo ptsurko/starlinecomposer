@@ -4,7 +4,8 @@ angular.module('StarLineComposer')
       restrict: 'EA',
       scope: {
         events: '=',
-        visualisation: '='
+        visualisation: '=',
+        selectedEvent: '='
       },
       transclude: true,
       template: '<svg></svg>' +
@@ -35,7 +36,7 @@ angular.module('StarLineComposer')
             scope.$apply(function() {
               var eventDetailsScope = scope.$new();
               eventDetailsScope.event = e.data;
-
+              scope.selectedEvent = e.data;
               updateArrowPositioning(e.element);
 
               transclude(eventDetailsScope, function(clone, innerScope) {
@@ -57,7 +58,7 @@ angular.module('StarLineComposer')
 
               var selectedEventElement = timeline.getSelectedEventElement();
               if (selectedEventElement) {
-                updateArrowPositioning();
+                updateArrowPositioning(selectedEventElement);
               }
             });
 
