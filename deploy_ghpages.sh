@@ -8,10 +8,10 @@ if [ $TRAVIS_PULL_REQUEST != false ];
 fi
 
 (
-  git init
+  # git init
   git config user.name "Travis-CI"
   git config user.email "travis@nodemeatspace.com"
-  git add -v .
-  git commit -v -m "Deployed to Github Pages"
+  # git add -v .
+  # git commit -v -m "Deployed to Github Pages"
   git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
 )
