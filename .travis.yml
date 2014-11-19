@@ -6,6 +6,8 @@ env:
   - GH_REF: github.com/ptsurko/starlinecomposer.git
   - GH_TOKEN: d0a4680c9e104fe8ccc61321f34e8de0f2097fb0
   - secure: bwYYZnBz2V/u5gYqqN6Xf/iyPvrQL8MpDnddPmyN5rigmH8JUZ2zUmshUZJdSG9OFL/NgCMFacAa7HNyEdH05FwubltbPls4n9RDQ5jEh3CItVVMVxONGr0DdmBVF5XvoAr3xfGM0+C4m9orYU/jj3O6p7VDgiibX78fN4IRfFc=
+before_install:
+  - chmod +x deploy_ghpages    
 after_success: ./deploy_ghpages.sh
 branches:
   only:
