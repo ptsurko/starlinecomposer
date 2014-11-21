@@ -12,8 +12,8 @@ fi
   git init
   git config user.name "Travis-CI"
   git config user.email "travis@nodemeatspace.com"
-  git add bower_components -f -v
-  git add node_modules -f -v
-  git commit -v -m "Deployed to Github Pages"
-  git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+  git add bower_components -f
+  git add node_modules -f
+  git commit -m "Deployed to Github Pages"
+  git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages -v
 )
