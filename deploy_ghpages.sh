@@ -15,5 +15,5 @@ fi
   git add bower_components -f
   git add node_modules -f
   git commit -m "Deployed to Github Pages"
-  git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages -v
+  git push --force "https://${GH_TOKEN}@${GH_REF}" gh-pages -v
 )
