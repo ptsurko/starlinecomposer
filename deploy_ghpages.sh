@@ -9,7 +9,7 @@ fi
 
 (
   echo "Pushing build to ${GH_REF} gh-pages branch."
-  git init
+  git checkout -b gh-pages
   git config user.name "Travis-CI"
   git config user.email "travis@nodemeatspace.com"
   git add .
@@ -17,5 +17,5 @@ fi
   git add node_modules -f
   git commit -m "Deployed to Github Pages"
   git branch
-  git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
+  git push --force "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
 )
