@@ -9,7 +9,6 @@ fi
 
 (
   echo "Pushing build to ${GH_REF} gh-pages branch."
-  git init
   git config user.name "Travis-CI"
   git config user.email "travis@nodemeatspace.com"
   git add bower_components -f
